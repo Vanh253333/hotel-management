@@ -1,11 +1,10 @@
 package com.example.hotel.domain;
 
 import java.io.Serializable;
-import java.time.LocalDate;
-import java.time.temporal.ChronoUnit;
 import java.util.Date;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,46 +12,42 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-
-import org.springframework.format.annotation.DateTimeFormat;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "bookedRooms")
-public class BookedRoom implements Serializable{
+@Table(name = "rooms")
+public class Room implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long bookedRoomId;
+	private Long roomId;
 	
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	private LocalDate checkIn;
+	@Column(columnDefinition = "nvarchar(100) not null")
+	private String name;
 	
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	private LocalDate checkOut;
-	
-	@Column(nullable = false)
-	private int dayNumber;
-
-	
-	@ManyToOne
-	@JoinColumn(name = "roomId", nullable=false)
-	private Room room;
+	@Column(columnDefinition = "nvarchar(50) not null")
+	private String type;
 	
 	@Column(nullable = false)
-	private double totalPrice;
+	private double price;
+	
+	@Column(columnDefinition = "nvarchar(500)")
+	private String description;
+	
+	@Column(length = 200)
+	private String image;
 	
 	@ManyToOne
-	@JoinColumn(name = "User_Id", nullable=false)
-	private AppUser appuser;
-	
-	
+	@JoinColumn(name = "hotelId", nullable=false)
+	private Hotel hotel;
 }

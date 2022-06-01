@@ -59,7 +59,6 @@
                       <th th:text="${room.hotel.name}"></th>
                       <th th:text="${room.description}"></th>
                       <td>
-                        <a th:href="@{'/admin/rooms/view/' + ${room.roomId}}" class="btn btn-outline-info"><i class="fas fa-info"></i></a>
                         <a th:href="@{'/admin/rooms/edit/' + ${room.roomId}}" class="btn btn-outline-warning"><i class="fas fa-edit"></i></a>
                         <a th:data-id="${room.roomId}"
                         th:data-name="${room.name}"
