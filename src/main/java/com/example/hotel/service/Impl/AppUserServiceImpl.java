@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.hotel.domain.AppUser;
-import com.example.hotel.domain.Room;
+import com.example.hotel.entity.AppUser;
+import com.example.hotel.entity.Room;
 import com.example.hotel.repository.AppUserRepository;
 import com.example.hotel.service.AppUserService;
 

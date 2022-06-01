@@ -2,7 +2,7 @@ package com.example.hotel.service;
 
 import java.util.List;
 
-import com.example.hotel.domain.AppUser;
+import com.example.hotel.entity.AppUser;
 
 public interface AppUserService {
 

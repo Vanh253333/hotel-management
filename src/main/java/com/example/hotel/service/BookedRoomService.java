@@ -3,7 +3,7 @@ package com.example.hotel.service;
 import java.util.List;
 import java.util.Optional;
 
-import com.example.hotel.domain.BookedRoom;
+import com.example.hotel.entity.BookedRoom;
 
 public interface BookedRoomService {
 

@@ -9,48 +9,34 @@
 <body>
 	<section class="row" layout:fragment="content">
 		<div class="col mt-4">
-			<form th:action="@{/admin/rooms/saveOrUpdate}" method="post"
-				enctype="multipart/form-data" th:object="${room}">
+			<form enctype="multipart/form-data" th:object="${room}">
 				<div class="card">
 
 					<div class="card-header">
-						<h2 th:text="${room?.isEdit ? 'Edit room': 'Add new room'}"></h2>
+						<h2>View Room</h2>
 					</div>
 					<div class="card-body">
 						<div class="row">
 							<div class="col-7">
-								<input type="hidden" th:field="*{isEdit}">
-								<div class="form-group" th:if="${room.isEdit}" >
-									<label for="roomId">Room ID:</label> <input type="text"
-										class="form-control" name="roomId" id="roomId"
-										th:field="*{roomId}" aria-describedby="roomHId"
-										placeholder="Room ID" readonly> <small id="roomHId"
-										class="form-text text-muted">Room ID is Required</small>
-								</div>
+
 								<div class="form-group">
 									<label for="name">Name</label> <input type="text"
 										class="form-control" name="name" id="name" th:field="*{name}"
-										aria-describedby="nameHid" placeholder="name"> 
-										<small th:if="${#fields.hasErrors('name')}" id="nameHId"
-											class="form-text text-muted">Name of room is required at least 5 characters!</small>
+										aria-describedby="nameHid" placeholder="name" readonly> 
 								</div>
 
 								<div class="form-group">
 									<label for="type">Type</label> <input type="text"
 										class="form-control" name="type" id="type" th:field="*{type}"
-										aria-describedby="typeHid" placeholder="type"> 
-										<small th:if="${#fields.hasErrors('type')}" id="typeHId"
-                                			class="form-text text-muted">Type of room is requireds!</small>
+										aria-describedby="typeHid" placeholder="type" readonly> 
 								</div>
 
 								<div class="input-group form-group">
 									<span class="input-group-text">Price</span> <input
 										type="number" name="price" id="price"
 										th:field="*{price}" class="form-control"
-										placeholder="pprice"> <span
+										placeholder="pprice" readonly> <span
 										class="input-group-text">VND</span>
-										<small th:if="${#fields.hasErrors('price')}" id="priceHId"
-                                			class="form-text text-muted">Price of room is requireds!</small>
 								</div>
 
 								<div class="form-group">
@@ -65,33 +51,12 @@
 							</div>
 							<div class="col-3">
 
-								<script>
-									function chooseFile(fileInput) {
-										if (fileInput.files
-												&& fileInput.files[0]) {
-											var reader = new FileReader();
-
-											reader.onload = function(e) {
-												$('#image').attr('src',
-														e.target.result);
-											}
-
-											reader
-													.readAsDataURL(fileInput.files[0]);
-										}
-									}
-								</script>
-
 								<img id="image"
-									th:src="${room.image != null ? '/admin/rooms/images/' + room.image : '/images/add-image.png'}"
+									th:src="${'/admin/rooms/images/' + room.image}"
 									src="/images/add-image.png" width="90%" class="img-fluid "
 									alt="">
 								<div class="form-group">
-									<label for="roomImage">Image File</label> <input type="file"
-										onchange="chooseFile(this)" class="form-control-file"
-										name="imageFile" id="roomImage" placeholder="Image file"
-										aria-describedby="roomImage"> <small id="roomImage"
-										class="form-text text-muted">Room Image is required</small>
+									<label for="roomImage">Image File</label> 
 								</div>
 
 
@@ -107,11 +72,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="card-footer text-muted">
-						<button type="reset" class="btn btn-secondary">Reset</button>
-						<button  class="btn btn-primary"
-							th:text="${room.isEdit?'Update': 'Save'}"></button>
-					
+					<div class="card-footer text-muted">				
 						<a th:if="${room.isEdit}" 
 							th:href="@{'/admin/rooms/delete' + ${room.roomId}}" 
 							class="btn btn-danger float-right">Delete</a>

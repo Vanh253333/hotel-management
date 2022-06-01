@@ -1,7 +1,7 @@
 package com.example.hotel.service.Impl;
 
-import com.example.hotel.domain.AppUser;
-import com.example.hotel.domain.UserRole;
+import com.example.hotel.entity.AppUser;
+import com.example.hotel.entity.UserRole;
 import com.example.hotel.repository.AppUserRepository;
 import com.example.hotel.repository.UserRoleRepository;
 

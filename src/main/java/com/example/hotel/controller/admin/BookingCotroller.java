@@ -25,9 +25,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.example.hotel.domain.BookedRoom;
-import com.example.hotel.domain.Room;
-import com.example.hotel.model.BookedRoomDto;
+import com.example.hotel.Dto.BookedRoomDto;
+import com.example.hotel.entity.BookedRoom;
+import com.example.hotel.entity.Room;
 import com.example.hotel.service.AppUserService;
 import com.example.hotel.service.BookedRoomService;
 import com.example.hotel.service.RoomService;
@@ -47,44 +47,14 @@ public class BookingCotroller {
 	
 	@GetMapping("searchFreeRoom")
 	public String search(ModelMap model, 
-			@RequestParam(name = "checkIn", required = false) String checkIn,
-			@RequestParam(name = "checkOut", required = false) String checkOut) {
+			@RequestParam(name = "checkInDate", required = false) String checkIn,
+			@RequestParam(name = "checkOutDate", required = false) String checkOut) {
 		
 		List<Room> list = roomService.getFreeRoom(checkIn, checkOut);	
 		model.addAttribute("freeRooms", list);
 		return "site/bookings/searchFreeRoom";
 	}
-	
-	
-//	@GetMapping("add")
-//	public String addOrEdit(ModelMap model,
-//			@RequestParam(name = "checkIn") String checkIn,
-//			@RequestParam(name = "checkOut") String checkOut, 
-//			@RequestParam(name = "roomId") Long roomId,
-//			Principal principal) {
-////		System.out.print("Không hiện ra cái mẹ gì cả" + checkOut + checkIn + roomId);
-//		BookedRoomDto dto = new BookedRoomDto();
-////		dto.setCheckIn(LocalDate.parse(checkIn));
-////		dto.setCheckOut(LocalDate.parse(checkOut));
-////		dto.setRoomId(roomId);
-////		dto.setUserId(appUserService.getByUsername(principal.getName()).getUserId());
-////		
-////		int num = Period.between(LocalDate.parse(checkIn), LocalDate.parse(checkOut)).getDays();
-////		double price = num*roomService.getById(roomId).getPrice();
-////		
-////		dto.setDayNumber(num);
-////		dto.setTotalPrice(price);
-//		dto.setCheckIn(LocalDate.now());
-//		dto.setCheckOut(LocalDate.now().plusDays(2));
-//		dto.setRoomId((long) 1);
-//		dto.setUserId((long) 2);
-//		dto.setDayNumber(2);
-//		dto.setTotalPrice(2000000);
-//		model.addAttribute("bookedRoom", dto);
-//		model.addAttribute("message", "Booking is saved!");
-//		
-//		return "site/bookings/bookingRooms";
-//	}
+
 	
 	@PostMapping("save")
 	public ModelAndView save(ModelMap model,
@@ -92,9 +62,7 @@ public class BookingCotroller {
 			@RequestParam(name = "checkOut", required = false) String checkOut, 
 			@RequestParam(name = "roomId", required = false) Long roomId,
 			Principal principal) {
-//		if(result.hasErrors()) {
-//			return new ModelAndView("admin/hotels/addOrEdit");
-//		}
+
 		BookedRoomDto dto = new BookedRoomDto();
 		dto.setCheckIn(LocalDate.parse(checkIn));
 		dto.setCheckOut(LocalDate.parse(checkOut));

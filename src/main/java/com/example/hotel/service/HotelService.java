@@ -6,7 +6,7 @@ import java.util.Optional;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-import com.example.hotel.domain.Hotel;
+import com.example.hotel.entity.Hotel;
 
 public interface HotelService {
 

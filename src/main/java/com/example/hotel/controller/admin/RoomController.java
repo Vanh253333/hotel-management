@@ -32,10 +32,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.example.hotel.domain.Hotel;
-import com.example.hotel.domain.Room;
-import com.example.hotel.model.HotelDto;
-import com.example.hotel.model.RoomDto;
+import com.example.hotel.Dto.HotelDto;
+import com.example.hotel.Dto.RoomDto;
+import com.example.hotel.entity.Hotel;
+import com.example.hotel.entity.Room;
 import com.example.hotel.service.HotelService;
 import com.example.hotel.service.RoomService;
 import com.example.hotel.service.StorageService;

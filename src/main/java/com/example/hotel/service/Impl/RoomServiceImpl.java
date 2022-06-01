@@ -9,8 +9,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-import com.example.hotel.domain.Hotel;
-import com.example.hotel.domain.Room;
+import com.example.hotel.entity.Hotel;
+import com.example.hotel.entity.Room;
 import com.example.hotel.repository.RoomRepository;
 import com.example.hotel.service.RoomService;
 

@@ -7,8 +7,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 
-import com.example.hotel.domain.Hotel;
-import com.example.hotel.domain.Room;
+import com.example.hotel.entity.Hotel;
+import com.example.hotel.entity.Room;
 
 public interface RoomService {
 

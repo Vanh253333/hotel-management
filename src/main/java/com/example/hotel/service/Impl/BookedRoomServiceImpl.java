@@ -4,7 +4,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.example.hotel.domain.BookedRoom;
+import com.example.hotel.entity.BookedRoom;
 import com.example.hotel.repository.BookedRoomRepository;
 import com.example.hotel.service.BookedRoomService;
 

@@ -26,8 +26,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.example.hotel.domain.Hotel;
-import com.example.hotel.model.HotelDto;
+import com.example.hotel.Dto.HotelDto;
+import com.example.hotel.entity.Hotel;
 import com.example.hotel.service.HotelService;
 
 @Controller
